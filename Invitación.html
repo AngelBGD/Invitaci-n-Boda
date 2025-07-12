@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Paola y Ángel</title>
+  <style>
+    :root {
+      --verde-oliva: #708238;
+      --lila: #C8A2C8;
+      --blanco: #ffffff;
+      --gris-claro: #f5f5f5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--gris-claro);
+      color: #333;
+    }
+
+    header {
+      height: 100vh;
+      background-color: var(--verde-oliva);
+      color: var(--blanco);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: fadeIn 2s ease;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      color: var(--lila);
+    }
+
+    header p {
+      font-size: 1.3rem;
+      color: var(--blanco);
+    }
+
+    nav {
+      background: var(--verde-oliva);
+      padding: 10px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: var(--blanco);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--lila);
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      color: var(--verde-oliva);
+      margin-bottom: 20px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap: 10px;
+    }
+
+    .gallery div {
+      width: 100%;
+      padding-top: 70%;
+      background-color: var(--verde-oliva);
+      color: var(--blanco);
+      border-radius: 8px;
+      text-align: center;
+      position: relative;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .gallery div span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: bold;
+    }
+
+    .gallery div.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .contador {
+      font-size: 2rem;
+      color: var(--lila);
+      margin-top: 10px;
+    }
+
+    form input, form select, form button {
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      display: block;
+    }
+
+    form button {
+      background: var(--verde-oliva);
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background: #5c6e2f;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="home">
+    <h1>Paola & Ángel</h1>
+    <p>11 de Octubre, 2025 – Tónala Jalisco</p>
+    <div class="contador" id="countdown"></div>
+  </header>
+
+  <nav>
+    <a href="#home">Inicio</a>
+    <a href="#historia">Historia</a>
+    <a href="#galeria">Galería</a>
+    <a href="#ubicacion">Ubicación</a>
+    <a href="#rsvp">RSVP</a>
+  </nav>
+
+  <section id="historia" class="fade-section">
+    <h2>Nuestra Historia</h2>
+    <p>Nos conocimos por destino, y desde ese día nuestras vidas se entrelazaron para siempre.</p>
+  </section>
+
+  <section id="galeria" class="fade-section">
+    <h2>Galería</h2>
+    <div class="gallery">
+      <div><span>Imagen 1</span></div>
+      <div><span>Imagen 2</span></div>
+      <div><span>Imagen 3</span></div>
+      <div><span>Imagen 4</span></div>
+    </div>
+  </section>
+
+  <section id="ubicacion" class="fade-section">
+    <h2>Ubicación del Evento</h2>
+    <p>Tónala Jalisco</p>
+ <iframe 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7477.827777578919!2d-103.2175088!3d20.6210977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842f31bb1d6f76ef%3A0x5d763589812ffb29!2sTonal%C3%A1%2C%20Jal.!5e0!3m2!1ses-419!2smx!4v1720722000000!5m2!1ses-419!2smx" 
+  width="100%" 
+  height="300" 
+  style="border:0;" 
+  allowfullscreen="" 
+  loading="lazy" 
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+  </section>
+
+  <section id="rsvp" class="fade-section">
+    <h2>Confirmación de Asistencia (RSVP)</h2>
+    <form>
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <select name="asistencia" required>
+        <option value="">¿Asistirás?</option>
+        <option value="si">Sí, con gusto</option>
+        <option value="no">No podré asistir</option>
+      </select>
+      <button type="submit">Enviar Confirmación</button>
+    </form>
+  </section>
+
+  <script>
+    // Contador regresivo
+    const countdown = document.getElementById("countdown");
+    const eventDate = new Date("2025-10-11T00:00:00").getTime();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance <= 0) {
+        countdown.innerHTML = "¡Hoy es el gran día!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    };
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Efecto scroll reveal
+    const sections = document.querySelectorAll(".fade-section");
+    const galleryItems = document.querySelectorAll(".gallery div");
+
+    const revealOnScroll = () => {
+      const trigger = window.innerHeight * 0.85;
+
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < trigger) {
+          section.classList.add("visible");
+        }
+      });
+
+      galleryItems.forEach(item => {
+        const top = item.getBoundingClientRect().top;
+        if (top < trigger) {
+          item.classList.add("visible");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+  </script>
+
+</body>
+</html>
